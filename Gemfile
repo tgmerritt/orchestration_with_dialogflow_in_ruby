@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.6.3'
+ruby '2.6.5'
 
 gem 'google-cloud-dialogflow', '~> 0.2.3'
 gem 'nokogiri'

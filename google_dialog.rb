@@ -2,13 +2,16 @@
 
 class GoogleDialog
     attr_accessor :state, :query, :session_id, :session_client, :project_id, :language_code
+
+    # Use your Dialogflow project ID, which you can get from the Dialogflow settings page for the agent
+    # Use the language setting of your Dialogflow project, such as en-US or ja
     def initialize(state = nil, query, session_id)
       @state = state
       @query = query
       @session_id = session_id
       @session_client = Google::Cloud::Dialogflow::Sessions.new
-      @project_id = ENV['GOOGLE_PROJECT_ID'] # Use your Dialogflow project ID, which you can get from the Dialogflow settings page for the agent
-      @language_code = ENV['DIALOGFLOW_LANG']　# Use the language setting of your Dialogflow project, such as en-US or ja
+      @project_id = ENV['GOOGLE_PROJECT_ID']
+      @language_code = ENV['DIALOGFLOW_LANG']
     end
   
     # Query Dialogflow using the Ruby gem
