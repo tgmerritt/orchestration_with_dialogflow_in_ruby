@@ -13,6 +13,9 @@ before do
 end
 
 post '/orchestrate' do
+  
+  puts "Payload is #{@request_payload}"
+  puts "Instance variables are #{instance_variables}"
   payload = GoogleDialog.new(@fm_conversation, @fm_question, @fm_avatar[:avatarSessionId]).query_dialogflow
   content_type :json
   payload.to_json
