@@ -50,7 +50,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (4.0.3)
-    rack (2.0.7)
+    rack (2.2.2)
     rack-protection (2.0.7)
       rack
     rainbow (3.0.0)
@@ -83,6 +83,7 @@ DEPENDENCIES
   google-cloud-dialogflow (~> 0.2.3)
   nokogiri
   pry
+  rack (>= 2.0.8)
   rubocop
   sinatra
 
