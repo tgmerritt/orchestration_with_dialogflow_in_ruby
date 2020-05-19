@@ -9,6 +9,7 @@ require_relative 'google_dialog'
 before do
   request.body.rewind
   @request_payload = JSON.parse(request.body.read, symbolize_names: false)
+  puts "Incoming request payload #{@request_payload}"
   @request_payload.each { |name, value| instance_variable_set("@#{name.to_s.tr('-', '_')}", value) }
 end
 
