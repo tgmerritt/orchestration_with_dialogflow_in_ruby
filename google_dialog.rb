@@ -87,12 +87,14 @@ class GoogleDialog
     def set_matched_context(res)
       if res['outputContexts'].is_a?(Array)
         context = res['outputContexts'].map { |x| x['name'] }
+        # Dump the unnecessary projects/newagent-gjetnk/agent/sessions/#{@session_id}/contexts/ stuff
+        context.map! { |c| c.split('.').last }
+        # Dump anything that isn't the right kind of context: mega, system counters, etc.
+        context.reject! { |e| e.include?("projects/newagent-gjetnk/agent/sessions/#{@session_id}/contexts/") }
+        context
+      else
+        res
       end
-      # Dump the unnecessary projects/newagent-gjetnk/agent/sessions/#{@session_id}/contexts/ stuff
-      context.map! { |c| c.split('.').last }
-      # Dump anything that isn't the right kind of context: mega, system counters, etc.
-      context.reject! { |e| e.include?("projects/newagent-gjetnk/agent/sessions/#{@session_id}/contexts/") }
-      context
     end
   
     # If there is any payload information, store it in the response
